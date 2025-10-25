@@ -1,0 +1,78 @@
+This file contais a practical guide on how the content of the paper "An Initial UML Approach for EU AI Act Compliance" 
+can be used with the generative AI system Gemini. The goal is to assist professionals in creating documentation 
+templates aligned with the EU AI Act requirements without starting from scratch.
+
+A new conversation should be initiated, and the entire content of Chapter 3 must be attached in DOC or PDF format - 
+preferably as a single page to avoid interpretation issues. A simple prompt such as “read the attached files” 
+should be sufficient for Gemini to interpret the content correctly.
+
+After the file has been processed, an extended prompt must be provided. This prompt should include relevant information 
+about the system to be documented. Below, an example prompt is shown: 
+
+---Prompt Begin---
+
+"You are an expert in AI compliance documentation.
+
+Your task is to generate a compliance document aligned with Annex IV, Point 2 of the EU AI Act (Regulation 2024/1689), 
+based on the UML approach provided in the attached file.
+
+System Description:
+
+System name: Breast Cancer Diagnostic AI (BCD-AI)
+Module: ClinicalModule (tabular data: clinical and laboratory records)
+Learning models: ModelA_MLP, ModelB_RF, ModelC_GB, ModelD_LR, ModelE_GB, ModelF_LR
+Explainability methods (respectively): LIME, SHAP, ICE, Ceteris Profiles, ICE, Ceteris Profiles
+Model accuracies (respectively): 95%, 97%, 99%, 97%, 95%, 97%
+Model specialization:
+- ModelA_MLP = women ≤ 35 years old
+- ModelB_RF = women with family history
+- ModelC_GB = irregular screening histories
+- ModelD_LR = women > 60 years old
+- ModelE_GB = women with poor lifestyle
+- ModelF_LR = all other cases
+Overall system accuracy: 97%
+Dataset: Wisconsin Breast Cancer (scikit-learn 1.3)
+
+Instructions:
+
+1. Consult the official text of the EU AI Act (Annex IV) at:
+   https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689.
+   Do not access or use any other external sources.
+
+2. Generate a formal, detailed, and compliance-oriented text that covers all subsections of Annex IV, Point 2, including:
+   - Development process and design choices
+   - Algorithms, models, and parameters
+   - Architecture and module integration
+   - Data provenance, cleaning, and labeling
+   - Human oversight and explainability (integration of each explainability method)
+   - Version control and model evolution
+   - Validation and testing metrics
+   - Traceability and documentation measures
+
+3. The document must explicitly reference the UML class diagram of the ClinicalModule package.
+   Use expressions such as “As illustrated in Figure X” or “The UML diagram (Figure X) provides a visual representation…”
+   when describing system components.
+
+4. Do not create UML figures or tables.
+   Assume that the UML diagram will be inserted manually by the user in the appropriate section.
+
+5. When referring to modeling elements, use their UML stereotype names naturally within the text (e.g., <<DataSource>>, 
+<<TrainedModel>>, <<LimeExplainer>>, <<ShapExplainer>>, <<IceExplainer>>, <<CeterisExplainer>>).  
+   Do not enumerate or tabulate them.
+
+6. The generated text must narratively describe the contents and relationships shown in the UML diagram rather than 
+listing components.
+
+7. The tone must emulate a formal technical compliance report suitable for regulatory submission, using precise, auditable,
+ and traceable language."
+ 
+---Prompt End--- 
+
+
+Gemini will then generate a documentation template for the system. The UML diagram must be inserted manually by the user. 
+Depending on the system’s complexity and documentation size, response time may vary. In such cases, it is recommended to 
+generate the documentation in parts (e.g., Point 2(a), Point 3, etc). 
+
+The prompt may be personalized as needed. Human review remains essential to ensure consistency and compliance accuracy. 
+
+The output generated can be found in the document "template_example.docx" in this repository.
