@@ -58,7 +58,7 @@ class TrainedModelB:
 class ShapExplainerB:
     def __init__(self, trained_model_b):
         self.trained_model = trained_model_b
-        self.tipo = "TreeExplainer"
+        self.type = "TreeExplainer"
         self.shap_values = None
         print("ShapExplainerB instantiated and connected to TrainedModelB.")
 
